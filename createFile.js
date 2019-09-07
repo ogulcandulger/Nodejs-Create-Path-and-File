@@ -11,13 +11,15 @@ const readline = require('readline').createInterface({
 });
   
 readline.question(`Please type your file name and extension: `, (input) => {
+    readline.question(`Please type your message: `, (input2) => {
     let path = dir + '/' + input;
-    fs.appendFile(path, 'Created first file using Node.js', err => {
+    fs.appendFile(path, input2, err => {
         if(err) throw err;
         console.log('Saved!');
     });
     console.log('The name of the file is: ' + input);
     readline.close();
-})
+    });
+});
 
 
